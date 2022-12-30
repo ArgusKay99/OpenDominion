@@ -104,7 +104,7 @@ There's also some non-domain coding issues open from time to time. We'll try to 
 
 ##### Tech stack
 
-OpenDominion is built on the Laravel 5.7 PHP framework, using PHP 7.3 as the main programming language.
+OpenDominion is built on the Laravel 7 PHP framework, using PHP 7.4 as the main programming language.
 
 The frontend is based off the [AdminLTE](https://adminlte.io/themes/AdminLTE/index2.html) open source dashboard theme, using [Font Awesome](https://fontawesome.com/) and [RPG Awesome](https://nagoshiashumari.github.io/Rpg-Awesome/) as font icons, alongside some additional NPM packages like Select2 for improved UX. It's built with Laravel's Blade templating language to serve static HTML responses.
 
@@ -139,6 +139,13 @@ Copy the Docker configuration files and start the Docker containers:
 $ bin/01-start.sh
 ```
 
+add an entry to your hosts-file.
+This is needed in order to visit your local copy in the browser
+```text
+127.0.0.1 opendominion.localhost
+```
+
+
 Login into the workspace container:
 
 ```bash
@@ -153,7 +160,7 @@ First-time setup script:
 laradock@8ea9bd9c9c56:/var/www$ bin/03-setup.sh
 ``` 
 
-You're now done. Navigate to [localhost](http://localhost) and you should see the homepage of your local OpenDominion instance. You can login with the credentials provided to you after the last step.
+You're now done. Navigate to [localhost](http://opendominion.localhost) and you should see the homepage of your local OpenDominion instance. You can login with the credentials provided to you after the last step.
 
 If you want to tinker with stuff through the command-line with an interactive shell (i.e. a [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)), you can run `php artisan tinker` from within the workspace container. Note that you need to restart the tinker process every time you make a change in the code.
 
